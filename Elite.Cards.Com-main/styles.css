@@ -6,7 +6,7 @@
     --dark-bg: #1e1e1e;
     --medium-bg: #2d2d2d;
     --card-bg: #252525;
-    --success: #00b894;
+    --success: #4a90e2;
     --error: #d63031;
     --text-dark: #e0e0e0;
     --text-light: #f8f9fa;
@@ -832,7 +832,7 @@ header {
 .status-active {
     color: var(--success);
     font-weight: 600;
-    background: rgba(0, 184, 148, 0.1);
+    background: rgba(74, 144, 226, 0.1);
     padding: 0.3rem 0.8rem;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -1127,6 +1127,7 @@ header {
     padding: 2rem;
     box-shadow: 0 5px 15px var(--shadow-color);
     border: 1px solid var(--border-color);
+    display: block !important; /* Ensure cart summary is always visible */
 }
 
 .summary-row {
@@ -1387,8 +1388,8 @@ header {
 }
 
 .payment-amount-display {
-    background: rgba(0, 255, 136, 0.1);
-    border: 1px solid #00ff88;
+    background: rgba(74, 144, 226, 0.1);
+    border: 1px solid #4a90e2;
     border-radius: 8px;
     padding: 1rem;
     margin-bottom: 1.5rem;
@@ -1396,7 +1397,7 @@ header {
 }
 
 .payment-amount-display h4 {
-    color: #00ff88;
+    color: #4a90e2;
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
     font-weight: 600;
@@ -1411,8 +1412,8 @@ header {
 }
 
 .payment-details-box {
-    background: rgba(0, 255, 136, 0.1);
-    border: 1px solid #00ff88;
+    background: rgba(74, 144, 226, 0.1);
+    border: 1px solid #4a90e2;
     border-radius: 8px;
     padding: 1rem;
     margin-bottom: 1.5rem;
@@ -1491,7 +1492,7 @@ header {
 }
 
 .upload-btn {
-    background: #00ff88;
+    background: #4a90e2;
     color: #333;
     border: none;
     padding: 0.8rem 2rem;
@@ -1504,7 +1505,7 @@ header {
 }
 
 .upload-btn:hover {
-    background: #00e67a;
+    background: #357abd;
     transform: translateY(-1px);
 }
 
@@ -1531,7 +1532,7 @@ header {
 }
 
 .confirm-btn {
-    background: #00ff88;
+    background: #4a90e2;
     color: #333;
     border: none;
     padding: 0.8rem 2rem;
@@ -1545,12 +1546,12 @@ header {
 }
 
 .confirm-btn:hover {
-    background: #00e67a;
+    background: #357abd;
     transform: translateY(-1px);
 }
 
 .confirm-btn:disabled {
-    background: #666;
+    background: #888;
     cursor: not-allowed;
     transform: none;
 }
@@ -1705,12 +1706,12 @@ header {
 .payment-details .amount {
     font-weight: 700;
     font-size: 1.2rem;
-    color: var(--primary-light-purple);
+    color: var(--success);
     letter-spacing: 0.5px;
 }
 
 .upload-section {
-    border: 2px dashed #00ff88;
+    border: 2px dashed #4a90e2;
     border-radius: 12px;
     padding: 2rem;
     text-align: center;
@@ -1723,10 +1724,10 @@ header {
 }
 
 .upload-section:hover {
-    border-color: #00ff88;
+    border-color: #4a90e2;
     background: linear-gradient(145deg, rgba(45, 45, 45, 0.4), rgba(37, 37, 37, 0.6));
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 255, 136, 0.2);
+    box-shadow: 0 10px 25px rgba(74, 144, 226, 0.2);
 }
 
 .upload-section:hover {
@@ -1839,7 +1840,7 @@ header {
 }
 
 .confirm-btn:disabled {
-    background: linear-gradient(135deg, #505050, #707070);
+    background: linear-gradient(135deg, #666666, #888888);
     cursor: not-allowed;
     transform: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -1884,7 +1885,7 @@ header {
 .pay-btn {
     width: 100%;
     padding: 1.2rem;
-    background: linear-gradient(135deg, var(--primary-purple), var(--primary-light-purple));
+    background: linear-gradient(135deg, var(--success), #7bb3ff);
     color: white;
     border: none;
     border-radius: 8px;
@@ -1892,18 +1893,18 @@ header {
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.3);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
     margin-top: 2rem;
     letter-spacing: 0.5px;
 }
 
 .pay-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(108, 92, 231, 0.5);
+    box-shadow: 0 12px 25px rgba(74, 144, 226, 0.5);
 }
 
 .pay-btn:disabled {
-    background: linear-gradient(135deg, #505050, #707070);
+    background: linear-gradient(135deg, #666666, #888888);
     cursor: not-allowed;
     transform: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -1923,20 +1924,20 @@ header {
     margin: 0;
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--primary-light-purple);
+    color: var(--success);
 }
 
 /* Success Modal */
 .success-modal {
     text-align: center;
     padding: 4rem 2.5rem;
-    background: linear-gradient(145deg, #0a2a1f, #051a14, #0a2a1f);
+    background: linear-gradient(145deg, #1a3a5c, #0f2538, #1a3a5c);
     border-radius: 25px;
     border: 3px solid var(--success);
     box-shadow:
         0 30px 60px rgba(0, 0, 0, 0.6),
-        0 0 0 1px rgba(0, 184, 148, 0.4) inset,
-        0 0 40px rgba(0, 184, 148, 0.3),
+        0 0 0 1px rgba(74, 144, 226, 0.4) inset,
+        0 0 40px rgba(74, 144, 226, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     animation: fadeIn 0.8s ease-out, successGlow 3s ease-in-out infinite alternate, modalFloat 6s ease-in-out infinite;
     position: relative;
@@ -1950,14 +1951,14 @@ header {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(0, 184, 148, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(74, 144, 226, 0.1) 0%, transparent 70%);
     animation: rotate 10s linear infinite;
     z-index: -1;
 }
 
 @keyframes successGlow {
-    0% { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 184, 148, 0.3) inset, 0 0 30px rgba(0, 184, 148, 0.2); }
-    100% { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(0, 184, 148, 0.6) inset, 0 0 50px rgba(0, 184, 148, 0.4); }
+    0% { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(74, 144, 226, 0.3) inset, 0 0 30px rgba(74, 144, 226, 0.2); }
+    100% { box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(74, 144, 226, 0.6) inset, 0 0 50px rgba(74, 144, 226, 0.4); }
 }
 
 @keyframes rotate {
@@ -1975,8 +1976,8 @@ header {
     color: var(--success);
     margin-bottom: 2rem;
     animation: scaleIn 1s cubic-bezier(0.19, 1, 0.22, 1), successPulse 2.5s ease-in-out infinite, iconGlow 3s ease-in-out infinite alternate;
-    text-shadow: 0 0 30px rgba(0, 184, 148, 0.8), 0 0 60px rgba(0, 184, 148, 0.4);
-    filter: drop-shadow(0 0 20px rgba(0, 184, 148, 0.6));
+    text-shadow: 0 0 30px rgba(74, 144, 226, 0.8), 0 0 60px rgba(74, 144, 226, 0.4);
+    filter: drop-shadow(0 0 20px rgba(74, 144, 226, 0.6));
 }
 
 @keyframes successPulse {
@@ -1985,8 +1986,8 @@ header {
 }
 
 @keyframes iconGlow {
-    0% { filter: drop-shadow(0 0 20px rgba(0, 184, 148, 0.6)); }
-    100% { filter: drop-shadow(0 0 40px rgba(0, 184, 148, 1)); }
+    0% { filter: drop-shadow(0 0 20px rgba(74, 144, 226, 0.6)); }
+    100% { filter: drop-shadow(0 0 40px rgba(74, 144, 226, 1)); }
 }
 
 @keyframes titleShimmer {
@@ -1995,8 +1996,8 @@ header {
 }
 
 @keyframes messageGlow {
-    0% { box-shadow: 0 8px 25px rgba(0, 184, 148, 0.2); }
-    100% { box-shadow: 0 8px 35px rgba(0, 184, 148, 0.4); }
+    0% { box-shadow: 0 8px 25px rgba(74, 144, 226, 0.2); }
+    100% { box-shadow: 0 8px 35px rgba(74, 144, 226, 0.4); }
 }
 
 @keyframes buttonPulse {
@@ -2020,12 +2021,12 @@ header {
     margin-bottom: 1.5rem;
     color: var(--text-light);
     font-weight: 800;
-    background: linear-gradient(135deg, var(--success), #4cd3c2, #00ff88, #4cd3c2);
+    background: linear-gradient(135deg, var(--success), #7bb3ff, #4a90e2, #7bb3ff);
     background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: fadeIn 1.2s ease-out, titleShimmer 4s ease-in-out infinite;
-    text-shadow: 0 2px 15px rgba(0, 184, 148, 0.5);
+    text-shadow: 0 2px 15px rgba(74, 144, 226, 0.5);
     letter-spacing: 1px;
 }
 
@@ -2038,11 +2039,11 @@ header {
     margin-left: auto;
     margin-right: auto;
     animation: fadeIn 1.4s ease-out, messageGlow 4s ease-in-out infinite alternate;
-    background: linear-gradient(145deg, rgba(0, 184, 148, 0.15), rgba(0, 184, 148, 0.08));
+    background: linear-gradient(145deg, rgba(74, 144, 226, 0.15), rgba(74, 144, 226, 0.08));
     padding: 2rem;
     border-radius: 16px;
-    border: 2px solid rgba(0, 184, 148, 0.3);
-    box-shadow: 0 8px 25px rgba(0, 184, 148, 0.2);
+    border: 2px solid rgba(74, 144, 226, 0.3);
+    box-shadow: 0 8px 25px rgba(74, 144, 226, 0.2);
     position: relative;
     overflow: hidden;
 }
@@ -2050,12 +2051,12 @@ header {
 .success-message .highlight {
     color: var(--success);
     font-weight: 700;
-    text-shadow: 0 0 10px rgba(0, 184, 148, 0.5);
+    text-shadow: 0 0 10px rgba(74, 144, 226, 0.5);
 }
 
 .back-to-shop {
     display: inline-block;
-    background: linear-gradient(135deg, var(--success), #4cd3c2, var(--success));
+    background: linear-gradient(135deg, var(--success), #7bb3ff, var(--success));
     background-size: 200% 200%;
     color: white;
     padding: 1.4rem 3.5rem;
@@ -2065,7 +2066,7 @@ header {
     font-size: 1.3rem;
     letter-spacing: 0.5px;
     transition: all 0.4s ease;
-    box-shadow: 0 12px 30px rgba(0, 184, 148, 0.5);
+    box-shadow: 0 12px 30px rgba(74, 144, 226, 0.5);
     animation: fadeIn 1.6s ease-out, buttonPulse 3s ease-in-out infinite, buttonShimmer 4s ease-in-out infinite;
     border: 2px solid rgba(255, 255, 255, 0.2);
     position: relative;
@@ -2089,7 +2090,7 @@ header {
 
 .back-to-shop:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 35px rgba(0, 184, 148, 0.6);
+    box-shadow: 0 15px 35px rgba(74, 144, 226, 0.6);
     border-color: rgba(255, 255, 255, 0.3);
 }
 
@@ -2157,7 +2158,7 @@ header {
 }
 
 .status-active {
-    color: #00b894;
+    color: #4a90e2;
     font-weight: 600;
 }
 
@@ -2244,7 +2245,7 @@ header {
 
 .order-total {
     font-weight: 600;
-    color: #00b894;
+    color: #4a90e2;
 }
 
 .order-status {
@@ -2266,9 +2267,9 @@ header {
 }
 
 .status-completed {
-    background: rgba(0, 184, 148, 0.2);
-    color: #00b894;
-    border: 1px solid rgba(0, 184, 148, 0.3);
+    background: rgba(74, 144, 226, 0.2);
+    color: #4a90e2;
+    border: 1px solid rgba(74, 144, 226, 0.3);
 }
 
 .status-failed {

@@ -820,6 +820,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Use event delegation for dynamically loaded elements
         document.addEventListener('click', async (e) => {
+            // Products link (including back to shop button in success modal)
+            if (e.target.classList.contains('products-link') || e.target.closest('.products-link')) {
+                e.preventDefault();
+                if (!db.getCurrentUser()) {
+                    showNotification('Please login to browse cards', 'error');
+                    showModal(document.getElementById('auth-modal'));
+                } else {
+                    showSection('products-section');
+                    setActiveNavItem('products-link');
+                }
+                closeMobileMenu();
+            }
+
             // Browse cards button
             if (e.target.id === 'browse-cards-btn' || e.target.closest('#browse-cards-btn')) {
                 e.preventDefault();
@@ -832,7 +845,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 closeMobileMenu();
             }
-            
+
             // Dashboard browse button
             if (e.target.id === 'dashboard-browse-btn' || e.target.closest('#dashboard-browse-btn')) {
                 e.preventDefault();
