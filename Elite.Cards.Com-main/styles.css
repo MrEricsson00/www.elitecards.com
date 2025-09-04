@@ -1219,11 +1219,43 @@ header {
 }
 
 .payment-header-teal {
-    background: linear-gradient(135deg, #20b2aa, #008b8b);
+    background: linear-gradient(135deg, #00aa00, #008800);
     color: white;
     padding: 1.5rem;
     text-align: center;
     margin: 0;
+    position: relative;
+}
+
+.payment-header-teal h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.payment-header-teal .close-modal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.payment-header-teal .close-modal:hover {
+    color: white;
+    background: rgba(214, 48, 49, 0.8);
+    transform: rotate(90deg);
 }
 
 .payment-header-teal h2 {
@@ -1379,8 +1411,8 @@ header {
 }
 
 .payment-details-box {
-    background: transparent;
-    border: 2px solid #00ff88;
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid #00ff88;
     border-radius: 8px;
     padding: 1rem;
     margin-bottom: 1.5rem;
@@ -1678,7 +1710,7 @@ header {
 }
 
 .upload-section {
-    border: 2px dashed rgba(108, 92, 231, 0.4);
+    border: 2px dashed #00ff88;
     border-radius: 12px;
     padding: 2rem;
     text-align: center;
@@ -1688,6 +1720,13 @@ header {
     background: linear-gradient(145deg, rgba(45, 45, 45, 0.3), rgba(37, 37, 37, 0.5));
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     animation: fadeIn 1.4s ease-out;
+}
+
+.upload-section:hover {
+    border-color: #00ff88;
+    background: linear-gradient(145deg, rgba(45, 45, 45, 0.4), rgba(37, 37, 37, 0.6));
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 255, 136, 0.2);
 }
 
 .upload-section:hover {

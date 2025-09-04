@@ -330,61 +330,37 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Handle payment confirmation with credit card form
+    // Handle payment confirmation with mobile money form
     async function handlePaymentConfirmation() {
-        const cardNumber = document.getElementById('card-number');
-        const expiryDate = document.getElementById('expiry-date');
-        const cvv = document.getElementById('cvv');
-        const cardholderName = document.getElementById('cardholder-name');
+        const customerEmail = document.getElementById('customer-email');
+        const paymentScreenshot = document.getElementById('payment-screenshot');
 
         // Validate required fields
-        if (!cardNumber || !cardNumber.value.trim()) {
-            showNotification('Please enter your card number', 'error');
+        if (!customerEmail || !customerEmail.value.trim()) {
+            showNotification('Please enter your email address', 'error');
             return;
         }
 
-        if (!expiryDate || !expiryDate.value.trim()) {
-            showNotification('Please enter the expiration date', 'error');
+        if (!paymentScreenshot || !paymentScreenshot.files || paymentScreenshot.files.length === 0) {
+            showNotification('Please upload a payment screenshot', 'error');
             return;
         }
 
-        if (!cvv || !cvv.value.trim()) {
-            showNotification('Please enter the CVV', 'error');
-            return;
-        }
-
-        if (!cardholderName || !cardholderName.value.trim()) {
-            showNotification('Please enter the cardholder name', 'error');
-            return;
-        }
-
-        // Basic validation for card number (16 digits)
-        const cardNumberClean = cardNumber.value.replace(/\s/g, '');
-        if (!/^\d{16}$/.test(cardNumberClean)) {
-            showNotification('Please enter a valid 16-digit card number', 'error');
-            return;
-        }
-
-        // Basic validation for expiry date (MM/YY format)
-        if (!/^\d{2}\/\d{2}$/.test(expiryDate.value)) {
-            showNotification('Please enter a valid expiration date (MM/YY)', 'error');
-            return;
-        }
-
-        // Basic validation for CVV (3-4 digits)
-        if (!/^\d{3,4}$/.test(cvv.value)) {
-            showNotification('Please enter a valid CVV (3-4 digits)', 'error');
+        // Basic email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(customerEmail.value.trim())) {
+            showNotification('Please enter a valid email address', 'error');
             return;
         }
 
         try {
             // Show loading state
-            const payBtn = document.getElementById('pay-btn');
-            const originalText = payBtn.textContent;
-            payBtn.textContent = 'Processing...';
-            payBtn.disabled = true;
+            const confirmBtn = document.getElementById('confirm-btn');
+            const originalText = confirmBtn.textContent;
+            confirmBtn.textContent = 'Processing...';
+            confirmBtn.disabled = true;
 
-            console.log('🚀 Starting payment submission process...');
+            console.log('🚀 Starting mobile money payment submission process...');
 
             // Get cart data
             const cart = db.getCart();
@@ -394,10 +370,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const totalAmount = subtotal + serviceFee;
 
             console.log('📊 Payment details:', {
-                cardNumber: cardNumber.value.substring(0, 4) + ' **** **** ****', // Mask card number for logging
-                cardholderName: cardholderName.value,
+                customerEmail: customerEmail.value,
                 totalAmount,
-                cartItemCount: cart.length
+                cartItemCount: cart.length,
+                hasScreenshot: !!paymentScreenshot.files[0]
             });
 
             // Prepare cart items for recording
@@ -414,14 +390,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Prepare payment data
             const paymentData = {
-                cardNumber: cardNumberClean,
-                expiryDate: expiryDate.value,
-                cvv: cvv.value,
-                cardholderName: cardholderName.value,
+                customerEmail: customerEmail.value.trim(),
                 amount: totalAmount,
                 currency: 'USD',
                 cartItems: cartItems,
-                paymentMethod: 'credit_card'
+                paymentMethod: 'mobile_money',
+                invoiceNumber: 'ML629C154.161.152.1278',
+                paymentScreenshot: paymentScreenshot.files[0] // File object
             };
 
             // Record payment in PocketBase
@@ -433,12 +408,13 @@ document.addEventListener('DOMContentLoaded', function() {
             try {
                 console.log('📧 Sending email notification to admin...');
                 const emailResult = await EmailService.sendTransactionNotification({
-                    customerEmail: cardholderName.value, // Use cardholder name as customer identifier
+                    customerEmail: customerEmail.value,
                     amount: totalAmount,
                     cartItems: cartItems,
                     paymentId: paymentRecord.pbId || paymentRecord.localId || 'N/A',
                     timestamp: new Date().toISOString(),
-                    paymentMethod: 'Credit Card'
+                    paymentMethod: 'Mobile Money',
+                    invoiceNumber: 'ML629C154.161.152.1278'
                 });
 
                 if (emailResult.success) {
@@ -452,8 +428,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Reset button state
-            payBtn.textContent = originalText;
-            payBtn.disabled = false;
+            confirmBtn.textContent = originalText;
+            confirmBtn.disabled = false;
 
             // Show appropriate success message based on PocketBase success
             if (paymentRecord.pbSuccess) {
@@ -477,9 +453,9 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('❌ Payment recording error:', error);
 
             // Reset button state
-            const payBtn = document.getElementById('pay-btn');
-            payBtn.textContent = 'Pay Now';
-            payBtn.disabled = false;
+            const confirmBtn = document.getElementById('confirm-btn');
+            confirmBtn.textContent = 'Confirm Payment';
+            confirmBtn.disabled = false;
 
             // Show detailed error message
             let errorMessage = 'Payment submission failed. ';
@@ -875,8 +851,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 showModal(document.getElementById('payment-modal'));
             }
             
-            // Pay now button
-            if (e.target.id === 'pay-btn' || e.target.closest('#pay-btn')) {
+            // Confirm payment button
+            if (e.target.id === 'confirm-btn' || e.target.closest('#confirm-btn')) {
                 e.preventDefault();
                 await handlePaymentConfirmation();
             }
@@ -904,27 +880,18 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Credit card form formatting - auto-format card number and expiry date
-        document.addEventListener('input', (e) => {
-            if (e.target.id === 'card-number') {
-                // Format card number with spaces every 4 digits
-                let value = e.target.value.replace(/\s/g, '');
-                value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
-                e.target.value = value;
-            }
+        // File upload handling for payment screenshot
+        document.addEventListener('change', (e) => {
+            if (e.target.id === 'payment-screenshot') {
+                const file = e.target.files[0];
+                const fileNameElement = document.getElementById('file-name');
 
-            if (e.target.id === 'expiry-date') {
-                // Format expiry date as MM/YY
-                let value = e.target.value.replace(/\D/g, '');
-                if (value.length >= 2) {
-                    value = value.substring(0, 2) + '/' + value.substring(2, 4);
+                if (file) {
+                    fileNameElement.textContent = `Selected: ${file.name}`;
+                    fileNameElement.style.color = '#00ff88';
+                } else {
+                    fileNameElement.textContent = '';
                 }
-                e.target.value = value;
-            }
-
-            if (e.target.id === 'cvv') {
-                // Limit CVV to 4 digits
-                e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
             }
         });
 
@@ -974,7 +941,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const password = document.getElementById('login-password').value;
                 await login(email, password);
             }
-            
+
             // Register form
             if (e.target.id === 'register-form') {
                 e.preventDefault();
@@ -982,13 +949,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 const email = document.getElementById('register-email').value;
                 const password = document.getElementById('register-password').value;
                 const confirm = document.getElementById('register-confirm').value;
-                
+
                 if (password !== confirm) {
                     showNotification('Passwords do not match', 'error');
                     return;
                 }
-                
+
                 await register(name, email, password);
+            }
+
+            // Mobile money payment form
+            if (e.target.id === 'momo-payment-form') {
+                e.preventDefault();
+                await handlePaymentConfirmation();
             }
         });
 
