@@ -35,8 +35,16 @@ window.db = {
         return `$${parseFloat(amount).toFixed(2)}`;
     },
 
-    // Sample products data
+    // Sample products data - Mixed price ranges
     sampleProducts: [
+        {
+            id: 'premium-card-1',
+            title: 'Premium Mastercard',
+            number: '**** **** **** 1001',
+            limit: '$8,000',
+            price: 70.00,
+            image: 'Platinum Mastercard.jpeg'
+        },
         {
             id: 'gold-card-1',
             title: 'Gold Mastercard',
@@ -46,44 +54,76 @@ window.db = {
             image: 'American Express.png'
         },
         {
-            id: 'platinum-card-1',
-            title: 'Platinum Mastercard',
-            number: '**** **** **** 5678',
-            limit: '$10,000',
+            id: 'standard-card-1',
+            title: 'Standard Mastercard',
+            number: '**** **** **** 2002',
+            limit: '$3,000',
+            price: 35.00,
+            image: 'Visa Infinite.jpeg'
+        },
+        {
+            id: 'elite-card-1',
+            title: 'Elite Mastercard',
+            number: '**** **** **** 3003',
+            limit: '$12,000',
             price: 100.00,
+            image: 'American Express.png'
+        },
+        {
+            id: 'gold-card-2',
+            title: 'Gold Plus Mastercard',
+            number: '**** **** **** 1235',
+            limit: '$6,000',
+            price: 50.00,
             image: 'Platinum Mastercard.jpeg'
         },
         {
-            id: 'black-card-1',
-            title: 'Black Mastercard',
-            number: '**** **** **** 9012',
-            limit: '$25,000',
+            id: 'premium-card-2',
+            title: 'Premium Plus Mastercard',
+            number: '**** **** **** 1002',
+            limit: '$9,000',
+            price: 70.00,
+            image: 'American Express.png'
+        },
+        {
+            id: 'luxury-card-1',
+            title: 'Luxury Mastercard',
+            number: '**** **** **** 4004',
+            limit: '$30,000',
             price: 250.00,
-            image: 'American Express.png'
-        },
-        {
-            id: 'infinite-card-1',
-            title: 'Infinite Mastercard',
-            number: '**** **** **** 3456',
-            limit: '$50,000',
-            price: 500.00,
             image: 'Visa Infinite.jpeg'
         },
         {
-            id: 'diamond-card-1',
-            title: 'Diamond Mastercard',
-            number: '**** **** **** 7890',
-            limit: '$100,000',
-            price: 1000.00,
+            id: 'premium-card-3',
+            title: 'Premium Elite Mastercard',
+            number: '**** **** **** 1003',
+            limit: '$11,000',
+            price: 70.00,
+            image: 'Platinum Mastercard.jpeg'
+        },
+        {
+            id: 'gold-card-3',
+            title: 'Gold Elite Mastercard',
+            number: '**** **** **** 1236',
+            limit: '$7,000',
+            price: 50.00,
             image: 'American Express.png'
         },
         {
-            id: 'world-card-1',
-            title: 'World Mastercard',
-            number: '**** **** **** 1357',
-            limit: '$15,000',
-            price: 150.00,
+            id: 'premium-card-4',
+            title: 'Premium Supreme Mastercard',
+            number: '**** **** **** 1004',
+            limit: '$10,000',
+            price: 70.00,
             image: 'Visa Infinite.jpeg'
+        },
+        {
+            id: 'executive-card-1',
+            title: 'Executive Mastercard',
+            number: '**** **** **** 5005',
+            limit: '$20,000',
+            price: 200.00,
+            image: 'American Express.png'
         }
     ],
 
