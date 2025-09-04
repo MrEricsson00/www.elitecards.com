@@ -330,42 +330,59 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Handle payment confirmation with PocketBase integration
+    // Handle payment confirmation with credit card form
     async function handlePaymentConfirmation() {
-        const paymentEmail = document.getElementById('payment-email');
-        const paymentScreenshot = document.getElementById('payment-screenshot');
-        
-        if (!paymentEmail || !paymentEmail.value) {
-            showNotification('Please enter your email address', 'error');
-            return;
-        }
-        
-        if (!paymentScreenshot || !paymentScreenshot.files[0]) {
-            showNotification('Please upload payment screenshot', 'error');
+        const cardNumber = document.getElementById('card-number');
+        const expiryDate = document.getElementById('expiry-date');
+        const cvv = document.getElementById('cvv');
+        const cardholderName = document.getElementById('cardholder-name');
+
+        // Validate required fields
+        if (!cardNumber || !cardNumber.value.trim()) {
+            showNotification('Please enter your card number', 'error');
             return;
         }
 
-        // Validate file type and size
-        const file = paymentScreenshot.files[0];
-        const maxSize = 10 * 1024 * 1024; // 10MB
-        const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
-        
-        if (!allowedTypes.includes(file.type)) {
-            showNotification('Please upload a valid image file (JPEG, PNG, GIF, or WebP)', 'error');
+        if (!expiryDate || !expiryDate.value.trim()) {
+            showNotification('Please enter the expiration date', 'error');
             return;
         }
-        
-        if (file.size > maxSize) {
-            showNotification('File size must be less than 10MB', 'error');
+
+        if (!cvv || !cvv.value.trim()) {
+            showNotification('Please enter the CVV', 'error');
+            return;
+        }
+
+        if (!cardholderName || !cardholderName.value.trim()) {
+            showNotification('Please enter the cardholder name', 'error');
+            return;
+        }
+
+        // Basic validation for card number (16 digits)
+        const cardNumberClean = cardNumber.value.replace(/\s/g, '');
+        if (!/^\d{16}$/.test(cardNumberClean)) {
+            showNotification('Please enter a valid 16-digit card number', 'error');
+            return;
+        }
+
+        // Basic validation for expiry date (MM/YY format)
+        if (!/^\d{2}\/\d{2}$/.test(expiryDate.value)) {
+            showNotification('Please enter a valid expiration date (MM/YY)', 'error');
+            return;
+        }
+
+        // Basic validation for CVV (3-4 digits)
+        if (!/^\d{3,4}$/.test(cvv.value)) {
+            showNotification('Please enter a valid CVV (3-4 digits)', 'error');
             return;
         }
 
         try {
             // Show loading state
-            const confirmBtn = document.getElementById('confirm-payment-btn');
-            const originalText = confirmBtn.textContent;
-            confirmBtn.textContent = 'Uploading...';
-            confirmBtn.disabled = true;
+            const payBtn = document.getElementById('pay-btn');
+            const originalText = payBtn.textContent;
+            payBtn.textContent = 'Processing...';
+            payBtn.disabled = true;
 
             console.log('🚀 Starting payment submission process...');
 
@@ -377,11 +394,10 @@ document.addEventListener('DOMContentLoaded', function() {
             const totalAmount = subtotal + serviceFee;
 
             console.log('📊 Payment details:', {
-                email: paymentEmail.value,
+                cardNumber: cardNumber.value.substring(0, 4) + ' **** **** ****', // Mask card number for logging
+                cardholderName: cardholderName.value,
                 totalAmount,
-                cartItemCount: cart.length,
-                fileName: file.name,
-                fileSize: file.size
+                cartItemCount: cart.length
             });
 
             // Prepare cart items for recording
@@ -398,11 +414,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Prepare payment data
             const paymentData = {
-                email: paymentEmail.value,
+                cardNumber: cardNumberClean,
+                expiryDate: expiryDate.value,
+                cvv: cvv.value,
+                cardholderName: cardholderName.value,
                 amount: totalAmount,
                 currency: 'USD',
                 cartItems: cartItems,
-                screenshot: file
+                paymentMethod: 'credit_card'
             };
 
             // Record payment in PocketBase
@@ -414,13 +433,14 @@ document.addEventListener('DOMContentLoaded', function() {
             try {
                 console.log('📧 Sending email notification to admin...');
                 const emailResult = await EmailService.sendTransactionNotification({
-                    customerEmail: paymentEmail.value,
+                    customerEmail: cardholderName.value, // Use cardholder name as customer identifier
                     amount: totalAmount,
                     cartItems: cartItems,
                     paymentId: paymentRecord.pbId || paymentRecord.localId || 'N/A',
-                    timestamp: new Date().toISOString()
+                    timestamp: new Date().toISOString(),
+                    paymentMethod: 'Credit Card'
                 });
-                
+
                 if (emailResult.success) {
                     console.log('✅ Email notification sent successfully');
                 } else {
@@ -432,8 +452,8 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Reset button state
-            confirmBtn.textContent = originalText;
-            confirmBtn.disabled = false;
+            payBtn.textContent = originalText;
+            payBtn.disabled = false;
 
             // Show appropriate success message based on PocketBase success
             if (paymentRecord.pbSuccess) {
@@ -455,12 +475,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
         } catch (error) {
             console.error('❌ Payment recording error:', error);
-            
+
             // Reset button state
-            const confirmBtn = document.getElementById('confirm-payment-btn');
-            confirmBtn.textContent = 'Confirm Payment';
-            confirmBtn.disabled = false;
-            
+            const payBtn = document.getElementById('pay-btn');
+            payBtn.textContent = 'Pay Now';
+            payBtn.disabled = false;
+
             // Show detailed error message
             let errorMessage = 'Payment submission failed. ';
             if (error.message) {
@@ -468,7 +488,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 errorMessage += 'Please check your connection and try again.';
             }
-            
+
             showNotification(errorMessage, 'error');
         }
     
@@ -552,8 +572,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const userEmail = document.getElementById('user-email');
             if (userEmail) userEmail.textContent = currentUser.email;
             
-            const paymentEmail = document.getElementById('payment-email');
-            if (paymentEmail) paymentEmail.value = currentUser.email;
+            // No longer using payment-email field
         } else {
             // User is logged out
             if (loginBtn) loginBtn.style.display = 'inline-block';
@@ -565,8 +584,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const dashboardLinks = document.querySelectorAll('.dashboard-link');
             dashboardLinks.forEach(link => link.style.display = 'none');
             
-            const paymentEmail = document.getElementById('payment-email');
-            if (paymentEmail) paymentEmail.value = '';
+            // No longer using payment-email field
         }
     }
 
@@ -857,8 +875,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 showModal(document.getElementById('payment-modal'));
             }
             
-            // Confirm payment button
-            if (e.target.id === 'confirm-payment-btn' || e.target.closest('#confirm-payment-btn')) {
+            // Pay now button
+            if (e.target.id === 'pay-btn' || e.target.closest('#pay-btn')) {
                 e.preventDefault();
                 await handlePaymentConfirmation();
             }
@@ -886,40 +904,27 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        // Payment screenshot upload - using event delegation for the new upload button
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('upload-btn') || e.target.closest('.upload-btn')) {
-                e.preventDefault();
-                const paymentScreenshot = document.getElementById('payment-screenshot');
-                if (paymentScreenshot) {
-                    paymentScreenshot.click();
-                }
+        // Credit card form formatting - auto-format card number and expiry date
+        document.addEventListener('input', (e) => {
+            if (e.target.id === 'card-number') {
+                // Format card number with spaces every 4 digits
+                let value = e.target.value.replace(/\s/g, '');
+                value = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+                e.target.value = value;
             }
-        });
-        
-        // File input change event - using event delegation
-        document.addEventListener('change', (e) => {
-            if (e.target.id === 'payment-screenshot') {
-                const file = e.target.files[0];
-                if (file) {
-                    const previewImage = document.getElementById('preview-image');
-                    const confirmPaymentBtn = document.getElementById('confirm-payment-btn');
-                    const fileName = document.getElementById('file-name');
-                    
-                    if (file && fileName) {
-                        fileName.textContent = `Selected: ${file.name}`;
-                    }
-                    
-                    if (previewImage && confirmPaymentBtn) {
-                        const reader = new FileReader();
-                        reader.onload = (event) => {
-                            previewImage.src = event.target.result;
-                            previewImage.style.display = 'block';
-                            confirmPaymentBtn.disabled = false;
-                        };
-                        reader.readAsDataURL(file);
-                    }
+
+            if (e.target.id === 'expiry-date') {
+                // Format expiry date as MM/YY
+                let value = e.target.value.replace(/\D/g, '');
+                if (value.length >= 2) {
+                    value = value.substring(0, 2) + '/' + value.substring(2, 4);
                 }
+                e.target.value = value;
+            }
+
+            if (e.target.id === 'cvv') {
+                // Limit CVV to 4 digits
+                e.target.value = e.target.value.replace(/\D/g, '').substring(0, 4);
             }
         });
 
