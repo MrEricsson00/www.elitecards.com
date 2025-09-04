@@ -730,11 +730,6 @@ header {
     margin-bottom: 1rem;
 }
 
-.price-conversion {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-    margin-bottom: 1rem;
-}
 
 .add-to-cart {
     width: 100%;
@@ -1106,10 +1101,6 @@ header {
     color: var(--primary-purple);
 }
 
-.cart-item-conversion {
-    font-size: 0.9rem;
-    color: var(--text-muted);
-}
 
 .remove-item {
     background-color: var(--error);
