@@ -2355,6 +2355,96 @@ header {
     100% { transform: rotate(360deg); }
 }
 
+/* Tablet Styles */
+@media (max-width: 1024px) and (min-width: 769px) {
+    /* Hide desktop navigation and show mobile footer nav on tablets */
+    .navbar .nav-links, .navbar .auth-buttons {
+        display: none;
+    }
+
+    /* Hide mobile toggle button on tablets */
+    #mobile-toggle {
+        display: none;
+    }
+
+    /* Show mobile footer navigation on tablets */
+    .mobile-footer-nav {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .footer-nav-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 5px;
+        min-width: 0;
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+        background: none;
+        border: none;
+        cursor: pointer;
+        min-height: 60px; /* Ensure good touch target */
+    }
+
+    .footer-nav-item:hover {
+        color: var(--primary-purple);
+    }
+
+    .footer-nav-item.active {
+        color: var(--primary-light-purple);
+    }
+
+    .footer-nav-item i {
+        font-size: 1.4rem; /* Larger icons for tablets */
+        margin-bottom: 4px;
+        display: block;
+    }
+
+    .footer-nav-item span {
+        font-size: 0.7rem;
+        font-weight: 500;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        display: block;
+    }
+
+    /* Add padding to the bottom of the page to account for the footer nav */
+    body {
+        padding-bottom: 60px;
+    }
+
+    .cta-btn {
+        padding: 1rem 2.5rem; /* Larger padding for tablets */
+        font-size: 1.1rem;
+        width: 100%; /* Full width for better visibility */
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
+    .add-to-cart {
+        padding: 0.9rem; /* Larger padding */
+        font-size: 1rem;
+        min-height: 48px; /* Ensure good touch target */
+    }
+
+    .confirm-btn, .checkout-btn {
+        padding: 1rem;
+        font-size: 1.1rem;
+        min-height: 50px;
+    }
+}
+
 /* Mobile Styles */
 @media (max-width: 768px) {
     /* Hide desktop navigation and show mobile footer nav */
@@ -2567,6 +2657,32 @@ header {
 
     .hero p {
         font-size: 1rem;
+    }
+
+    .cta-btn {
+        padding: 1rem 2rem; /* Ensure good touch target */
+        font-size: 1.1rem;
+        width: 100%; /* Full width on mobile for better visibility */
+        max-width: 300px; /* But not too wide */
+        margin: 0 auto; /* Center it */
+    }
+
+    .add-to-cart {
+        padding: 0.9rem; /* Larger padding for touch */
+        font-size: 1rem;
+        min-height: 44px; /* Minimum touch target height */
+    }
+
+    .confirm-btn {
+        padding: 1rem; /* Larger padding */
+        font-size: 1rem;
+        min-height: 48px;
+    }
+
+    .checkout-btn {
+        padding: 1rem; /* Larger padding */
+        font-size: 1.1rem;
+        min-height: 48px;
     }
 
     .dashboard-grid {

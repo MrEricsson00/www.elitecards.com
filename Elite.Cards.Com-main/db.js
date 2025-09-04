@@ -35,11 +35,63 @@ window.db = {
         return `$${parseFloat(amount).toFixed(2)}`;
     },
 
-    // Placeholder functions for other database operations
-    // These would need to be implemented based on the actual data storage method
+    // Sample products data
+    sampleProducts: [
+        {
+            id: 'gold-card-1',
+            title: 'Gold Mastercard',
+            number: '**** **** **** 1234',
+            limit: '$5,000',
+            price: 50.00,
+            image: 'American Express.png'
+        },
+        {
+            id: 'platinum-card-1',
+            title: 'Platinum Mastercard',
+            number: '**** **** **** 5678',
+            limit: '$10,000',
+            price: 100.00,
+            image: 'Platinum Mastercard.jpeg'
+        },
+        {
+            id: 'black-card-1',
+            title: 'Black Mastercard',
+            number: '**** **** **** 9012',
+            limit: '$25,000',
+            price: 250.00,
+            image: 'American Express.png'
+        },
+        {
+            id: 'infinite-card-1',
+            title: 'Infinite Mastercard',
+            number: '**** **** **** 3456',
+            limit: '$50,000',
+            price: 500.00,
+            image: 'Visa Infinite.jpeg'
+        },
+        {
+            id: 'diamond-card-1',
+            title: 'Diamond Mastercard',
+            number: '**** **** **** 7890',
+            limit: '$100,000',
+            price: 1000.00,
+            image: 'American Express.png'
+        },
+        {
+            id: 'world-card-1',
+            title: 'World Mastercard',
+            number: '**** **** **** 1357',
+            limit: '$15,000',
+            price: 150.00,
+            image: 'Visa Infinite.jpeg'
+        }
+    ],
+
+    // Get products function
     getProducts: function() {
-        console.warn('getProducts not implemented');
-        return [];
+        // Return sample products for now
+        // In production, this would fetch from PocketBase
+        return Promise.resolve(this.sampleProducts);
     },
 
     getCart: function() {
