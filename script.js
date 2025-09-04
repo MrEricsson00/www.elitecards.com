@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 productCard.className = `product-card ${cardType}`;
                 
                 // Use the image from product data or fallback to default
-                let imageSrc = product.image || 'images/default-card.png';
+                let imageSrc = product.image || 'American Express.png';
                 
                 productCard.innerHTML = `
                     <div class="product-image">
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <div class="product-info">
                         <h3 class="product-title">${product.title}</h3>
-                        <p class="product-number">${product.number}</p>
+                        <p class="product-number">****************</p>
                         <p class="product-limit">${product.limit}</p>
                         <p class="product-price">$${product.price.toFixed(2)}</p>
                         <button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
             cartItem.className = `cart-item ${cardType}-cart-item`;
             
             // Use the image from product data or fallback to default
-            let imageSrc = product.image || 'images/default-card.png';
+            let imageSrc = product.image || 'American Express.png';
             
             cartItem.innerHTML = `
                 <div class="cart-item-image">
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="cart-item-details">
                     <h3>${product.title}</h3>
-                    <p class="cart-item-number">${product.number}</p>
+                    <p class="cart-item-number">****************</p>
                     <p class="cart-item-quantity">Quantity: ${item.quantity}</p>
                 </div>
                 <div class="cart-item-price">$${(product.price * item.quantity).toFixed(2)}</div>
