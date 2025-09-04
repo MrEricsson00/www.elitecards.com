@@ -39,7 +39,7 @@ window.db = {
     sampleProducts: [
         {
             id: 'card-1',
-            title: 'Basic Mastercard',
+            title: 'Basic American Express',
             number: '**** **** **** ****',
             limit: '$2,000',
             price: 35.00,
@@ -47,7 +47,7 @@ window.db = {
         },
         {
             id: 'card-2',
-            title: 'Standard Mastercard',
+            title: 'Standard Platinum Mastercard',
             number: '**** **** **** ****',
             limit: '$3,000',
             price: 50.00,
@@ -55,7 +55,7 @@ window.db = {
         },
         {
             id: 'card-3',
-            title: 'Premium Mastercard',
+            title: 'Premium Visa Infinite',
             number: '**** **** **** ****',
             limit: '$5,000',
             price: 100.00,
@@ -63,7 +63,7 @@ window.db = {
         },
         {
             id: 'card-4',
-            title: 'Executive Mastercard',
+            title: 'Executive American Express',
             number: '**** **** **** ****',
             limit: '$8,000',
             price: 200.00,
@@ -71,7 +71,7 @@ window.db = {
         },
         {
             id: 'card-5',
-            title: 'Essential Mastercard',
+            title: 'Essential American Express',
             number: '**** **** **** ****',
             limit: '$2,000',
             price: 35.00,
@@ -79,7 +79,7 @@ window.db = {
         },
         {
             id: 'card-6',
-            title: 'Gold Mastercard',
+            title: 'Gold Platinum Mastercard',
             number: '**** **** **** ****',
             limit: '$3,000',
             price: 50.00,
@@ -87,7 +87,7 @@ window.db = {
         },
         {
             id: 'card-7',
-            title: 'Elite Mastercard',
+            title: 'Elite Visa Infinite',
             number: '**** **** **** ****',
             limit: '$5,000',
             price: 100.00,
@@ -95,7 +95,7 @@ window.db = {
         },
         {
             id: 'card-8',
-            title: 'Platinum Mastercard',
+            title: 'Premium Platinum Mastercard',
             number: '**** **** **** ****',
             limit: '$8,000',
             price: 200.00,
@@ -103,7 +103,7 @@ window.db = {
         },
         {
             id: 'card-9',
-            title: 'Starter Mastercard',
+            title: 'Starter American Express',
             number: '**** **** **** ****',
             limit: '$2,000',
             price: 35.00,
@@ -111,7 +111,7 @@ window.db = {
         },
         {
             id: 'card-10',
-            title: 'Plus Mastercard',
+            title: 'Plus Platinum Mastercard',
             number: '**** **** **** ****',
             limit: '$3,000',
             price: 50.00,
@@ -119,7 +119,7 @@ window.db = {
         },
         {
             id: 'card-11',
-            title: 'Advanced Mastercard',
+            title: 'Advanced Visa Infinite',
             number: '**** **** **** ****',
             limit: '$5,000',
             price: 100.00,
@@ -127,7 +127,7 @@ window.db = {
         },
         {
             id: 'card-12',
-            title: 'Supreme Mastercard',
+            title: 'Supreme American Express',
             number: '**** **** **** ****',
             limit: '$8,000',
             price: 200.00,
@@ -135,7 +135,7 @@ window.db = {
         },
         {
             id: 'card-13',
-            title: 'Entry Mastercard',
+            title: 'Entry American Express',
             number: '**** **** **** ****',
             limit: '$2,000',
             price: 35.00,
@@ -143,7 +143,7 @@ window.db = {
         },
         {
             id: 'card-14',
-            title: 'Enhanced Mastercard',
+            title: 'Enhanced Platinum Mastercard',
             number: '**** **** **** ****',
             limit: '$3,000',
             price: 50.00,
@@ -151,7 +151,7 @@ window.db = {
         },
         {
             id: 'card-15',
-            title: 'Pro Mastercard',
+            title: 'Pro Visa Infinite',
             number: '**** **** **** ****',
             limit: '$5,000',
             price: 100.00,
@@ -159,7 +159,7 @@ window.db = {
         },
         {
             id: 'card-16',
-            title: 'Ultimate Mastercard',
+            title: 'Ultimate Platinum Mastercard',
             number: '**** **** **** ****',
             limit: '$8,000',
             price: 200.00,
@@ -167,7 +167,7 @@ window.db = {
         },
         {
             id: 'card-17',
-            title: 'Simple Mastercard',
+            title: 'Simple American Express',
             number: '**** **** **** ****',
             limit: '$2,000',
             price: 35.00,
@@ -175,7 +175,7 @@ window.db = {
         },
         {
             id: 'card-18',
-            title: 'Select Mastercard',
+            title: 'Select Platinum Mastercard',
             number: '**** **** **** ****',
             limit: '$3,000',
             price: 50.00,
@@ -183,7 +183,7 @@ window.db = {
         },
         {
             id: 'card-19',
-            title: 'Master Mastercard',
+            title: 'Master Visa Infinite',
             number: '**** **** **** ****',
             limit: '$5,000',
             price: 100.00,
@@ -191,7 +191,7 @@ window.db = {
         },
         {
             id: 'card-20',
-            title: 'Legendary Mastercard',
+            title: 'Legendary American Express',
             number: '**** **** **** ****',
             limit: '$8,000',
             price: 200.00,
