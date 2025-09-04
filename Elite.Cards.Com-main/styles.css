@@ -1930,14 +1930,15 @@ header {
 .success-modal {
     text-align: center;
     padding: 4rem 2.5rem;
-    background: linear-gradient(145deg, #1a4d3a, #0f3d2f);
-    border-radius: 20px;
-    border: 2px solid var(--success);
+    background: linear-gradient(145deg, #0a2a1f, #051a14, #0a2a1f);
+    border-radius: 25px;
+    border: 3px solid var(--success);
     box-shadow:
-        0 25px 50px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(0, 184, 148, 0.3) inset,
-        0 0 30px rgba(0, 184, 148, 0.2);
-    animation: fadeIn 0.6s ease-out, successGlow 2s ease-in-out infinite alternate;
+        0 30px 60px rgba(0, 0, 0, 0.6),
+        0 0 0 1px rgba(0, 184, 148, 0.4) inset,
+        0 0 40px rgba(0, 184, 148, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: fadeIn 0.8s ease-out, successGlow 3s ease-in-out infinite alternate, modalFloat 6s ease-in-out infinite;
     position: relative;
     overflow: hidden;
 }
@@ -1964,17 +1965,48 @@ header {
     100% { transform: rotate(360deg); }
 }
 
+@keyframes modalFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
 .success-icon {
-    font-size: 7rem;
+    font-size: 8rem;
     color: var(--success);
     margin-bottom: 2rem;
-    animation: scaleIn 0.8s cubic-bezier(0.19, 1, 0.22, 1), successPulse 2s ease-in-out infinite;
-    text-shadow: 0 0 20px rgba(0, 184, 148, 0.5);
+    animation: scaleIn 1s cubic-bezier(0.19, 1, 0.22, 1), successPulse 2.5s ease-in-out infinite, iconGlow 3s ease-in-out infinite alternate;
+    text-shadow: 0 0 30px rgba(0, 184, 148, 0.8), 0 0 60px rgba(0, 184, 148, 0.4);
+    filter: drop-shadow(0 0 20px rgba(0, 184, 148, 0.6));
 }
 
 @keyframes successPulse {
     0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+
+@keyframes iconGlow {
+    0% { filter: drop-shadow(0 0 20px rgba(0, 184, 148, 0.6)); }
+    100% { filter: drop-shadow(0 0 40px rgba(0, 184, 148, 1)); }
+}
+
+@keyframes titleShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes messageGlow {
+    0% { box-shadow: 0 8px 25px rgba(0, 184, 148, 0.2); }
+    100% { box-shadow: 0 8px 35px rgba(0, 184, 148, 0.4); }
+}
+
+@keyframes buttonPulse {
+    0%, 100% { transform: scale(1); }
     50% { transform: scale(1.05); }
+}
+
+@keyframes buttonShimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 @keyframes scaleIn {
@@ -1984,30 +2016,35 @@ header {
 }
 
 .success-title {
-    font-size: 2.8rem;
+    font-size: 3.2rem;
     margin-bottom: 1.5rem;
     color: var(--text-light);
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--success), #4cd3c2, #00ff88);
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--success), #4cd3c2, #00ff88, #4cd3c2);
+    background-size: 200% 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: fadeIn 1s ease-out;
-    text-shadow: 0 2px 10px rgba(0, 184, 148, 0.3);
+    animation: fadeIn 1.2s ease-out, titleShimmer 4s ease-in-out infinite;
+    text-shadow: 0 2px 15px rgba(0, 184, 148, 0.5);
+    letter-spacing: 1px;
 }
 
 .success-message {
     margin-bottom: 2.5rem;
-    font-size: 1.3rem;
-    line-height: 1.6;
+    font-size: 1.4rem;
+    line-height: 1.7;
     color: var(--text-light);
-    max-width: 85%;
+    max-width: 90%;
     margin-left: auto;
     margin-right: auto;
-    animation: fadeIn 1.2s ease-out;
-    background: rgba(0, 184, 148, 0.1);
-    padding: 1.5rem;
-    border-radius: 12px;
-    border: 1px solid rgba(0, 184, 148, 0.2);
+    animation: fadeIn 1.4s ease-out, messageGlow 4s ease-in-out infinite alternate;
+    background: linear-gradient(145deg, rgba(0, 184, 148, 0.15), rgba(0, 184, 148, 0.08));
+    padding: 2rem;
+    border-radius: 16px;
+    border: 2px solid rgba(0, 184, 148, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 184, 148, 0.2);
+    position: relative;
+    overflow: hidden;
 }
 
 .success-message .highlight {
@@ -2018,18 +2055,19 @@ header {
 
 .back-to-shop {
     display: inline-block;
-    background: linear-gradient(135deg, var(--success), #4cd3c2);
+    background: linear-gradient(135deg, var(--success), #4cd3c2, var(--success));
+    background-size: 200% 200%;
     color: white;
-    padding: 1.2rem 3rem;
+    padding: 1.4rem 3.5rem;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     letter-spacing: 0.5px;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 25px rgba(0, 184, 148, 0.4);
-    animation: fadeIn 1.4s ease-out, pulse 2s infinite 2s;
-    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    box-shadow: 0 12px 30px rgba(0, 184, 148, 0.5);
+    animation: fadeIn 1.6s ease-out, buttonPulse 3s ease-in-out infinite, buttonShimmer 4s ease-in-out infinite;
+    border: 2px solid rgba(255, 255, 255, 0.2);
     position: relative;
     overflow: hidden;
 }
