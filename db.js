@@ -43,7 +43,7 @@ window.db = {
             number: '**** **** **** ****',
             limit: '$2,000',
             price: 35.00,
-            image: 'Visa Infinite.jpeg'
+            image: 'American Express.png'
         },
         {
             id: 'card-2',
@@ -51,7 +51,7 @@ window.db = {
             number: '**** **** **** ****',
             limit: '$3,000',
             price: 50.00,
-            image: 'American Express.png'
+            image: 'Platinum Mastercard.jpeg'
         },
         {
             id: 'card-3',
@@ -59,7 +59,7 @@ window.db = {
             number: '**** **** **** ****',
             limit: '$5,000',
             price: 100.00,
-            image: 'Platinum Mastercard.jpeg'
+            image: 'Visa Infinite.jpeg'
         },
         {
             id: 'card-4',
@@ -75,7 +75,7 @@ window.db = {
             number: '**** **** **** ****',
             limit: '$2,000',
             price: 35.00,
-            image: 'Platinum Mastercard.jpeg'
+            image: 'American Express.png'
         },
         {
             id: 'card-6',
@@ -83,7 +83,7 @@ window.db = {
             number: '**** **** **** ****',
             limit: '$3,000',
             price: 50.00,
-            image: 'Visa Infinite.jpeg'
+            image: 'Platinum Mastercard.jpeg'
         },
         {
             id: 'card-7',
@@ -91,7 +91,7 @@ window.db = {
             number: '**** **** **** ****',
             limit: '$5,000',
             price: 100.00,
-            image: 'American Express.png'
+            image: 'Visa Infinite.jpeg'
         },
         {
             id: 'card-8',
@@ -139,7 +139,7 @@ window.db = {
             number: '**** **** **** ****',
             limit: '$2,000',
             price: 35.00,
-            image: 'Visa Infinite.jpeg'
+            image: 'American Express.png'
         },
         {
             id: 'card-14',
@@ -147,7 +147,7 @@ window.db = {
             number: '**** **** **** ****',
             limit: '$3,000',
             price: 50.00,
-            image: 'American Express.png'
+            image: 'Platinum Mastercard.jpeg'
         },
         {
             id: 'card-15',
@@ -155,7 +155,7 @@ window.db = {
             number: '**** **** **** ****',
             limit: '$5,000',
             price: 100.00,
-            image: 'Platinum Mastercard.jpeg'
+            image: 'Visa Infinite.jpeg'
         },
         {
             id: 'card-16',
@@ -163,7 +163,7 @@ window.db = {
             number: '**** **** **** ****',
             limit: '$8,000',
             price: 200.00,
-            image: 'Visa Infinite.jpeg'
+            image: 'Platinum Mastercard.jpeg'
         },
         {
             id: 'card-17',
@@ -187,7 +187,7 @@ window.db = {
             number: '**** **** **** ****',
             limit: '$5,000',
             price: 100.00,
-            image: 'American Express.png'
+            image: 'Visa Infinite.jpeg'
         },
         {
             id: 'card-20',
@@ -195,7 +195,7 @@ window.db = {
             number: '**** **** **** ****',
             limit: '$8,000',
             price: 200.00,
-            image: 'Visa Infinite.jpeg'
+            image: 'American Express.png'
         }
     ],
 
