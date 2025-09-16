@@ -96,9 +96,10 @@ window.db = {
 
     // Get products function
     getProducts: function() {
-        // Return products in order by type for neat grid arrangement
+        // Shuffle the products array for varied display
+        const shuffledProducts = [...this.sampleProducts].sort(() => Math.random() - 0.5);
         // In production, this would fetch from PocketBase
-        return Promise.resolve([...this.sampleProducts]);
+        return Promise.resolve(shuffledProducts);
     },
 
     getCart: function() {
