@@ -37,39 +37,39 @@ window.db = {
 
     // Sample products data - 50 cards across 5 categories
     sampleProducts: [
-        // American Express - 10 cards
+        // American Express - 10 cards (5 with each image)
         { id: 'card-1', title: 'American Express', number: '**** **** **** ****', price: 25.00, image: 'American Express1.png' },
         { id: 'card-2', title: 'American Express', number: '**** **** **** ****', price: 25.00, image: 'American Express1.png' },
         { id: 'card-3', title: 'American Express', number: '**** **** **** ****', price: 35.00, image: 'American Express1.png' },
         { id: 'card-4', title: 'American Express', number: '**** **** **** ****', price: 35.00, image: 'American Express1.png' },
         { id: 'card-5', title: 'American Express', number: '**** **** **** ****', price: 50.00, image: 'American Express1.png' },
-        { id: 'card-6', title: 'American Express', number: '**** **** **** ****', price: 50.00, image: 'American Express1.png' },
-        { id: 'card-7', title: 'American Express', number: '**** **** **** ****', price: 100.00, image: 'American Express1.png' },
-        { id: 'card-8', title: 'American Express', number: '**** **** **** ****', price: 100.00, image: 'American Express1.png' },
-        { id: 'card-9', title: 'American Express', number: '**** **** **** ****', price: 25.00, image: 'American Express1.png' },
-        { id: 'card-10', title: 'American Express', number: '**** **** **** ****', price: 25.00, image: 'American Express1.png' },
-        // Platinum Master Card - 10 cards
+        { id: 'card-6', title: 'American Express', number: '**** **** **** ****', price: 50.00, image: 'American Express 2.jpeg' },
+        { id: 'card-7', title: 'American Express', number: '**** **** **** ****', price: 100.00, image: 'American Express 2.jpeg' },
+        { id: 'card-8', title: 'American Express', number: '**** **** **** ****', price: 100.00, image: 'American Express 2.jpeg' },
+        { id: 'card-9', title: 'American Express', number: '**** **** **** ****', price: 25.00, image: 'American Express 2.jpeg' },
+        { id: 'card-10', title: 'American Express', number: '**** **** **** ****', price: 25.00, image: 'American Express 2.jpeg' },
+        // Platinum Master Card - 10 cards (5 with each image)
         { id: 'card-11', title: 'Platinum Master Card', number: '**** **** **** ****', price: 25.00, image: 'Platinum Mastercard1.jpeg' },
         { id: 'card-12', title: 'Platinum Master Card', number: '**** **** **** ****', price: 25.00, image: 'Platinum Mastercard1.jpeg' },
         { id: 'card-13', title: 'Platinum Master Card', number: '**** **** **** ****', price: 35.00, image: 'Platinum Mastercard1.jpeg' },
         { id: 'card-14', title: 'Platinum Master Card', number: '**** **** **** ****', price: 35.00, image: 'Platinum Mastercard1.jpeg' },
         { id: 'card-15', title: 'Platinum Master Card', number: '**** **** **** ****', price: 50.00, image: 'Platinum Mastercard1.jpeg' },
-        { id: 'card-16', title: 'Platinum Master Card', number: '**** **** **** ****', price: 50.00, image: 'Platinum Mastercard1.jpeg' },
-        { id: 'card-17', title: 'Platinum Master Card', number: '**** **** **** ****', price: 100.00, image: 'Platinum Mastercard1.jpeg' },
-        { id: 'card-18', title: 'Platinum Master Card', number: '**** **** **** ****', price: 100.00, image: 'Platinum Mastercard1.jpeg' },
-        { id: 'card-19', title: 'Platinum Master Card', number: '**** **** **** ****', price: 25.00, image: 'Platinum Mastercard1.jpeg' },
-        { id: 'card-20', title: 'Platinum Master Card', number: '**** **** **** ****', price: 25.00, image: 'Platinum Mastercard1.jpeg' },
-        // Visa Infinite - 10 cards
+        { id: 'card-16', title: 'Platinum Master Card', number: '**** **** **** ****', price: 50.00, image: 'platinum2.jpeg' },
+        { id: 'card-17', title: 'Platinum Master Card', number: '**** **** **** ****', price: 100.00, image: 'platinum2.jpeg' },
+        { id: 'card-18', title: 'Platinum Master Card', number: '**** **** **** ****', price: 100.00, image: 'platinum2.jpeg' },
+        { id: 'card-19', title: 'Platinum Master Card', number: '**** **** **** ****', price: 25.00, image: 'platinum2.jpeg' },
+        { id: 'card-20', title: 'Platinum Master Card', number: '**** **** **** ****', price: 25.00, image: 'platinum2.jpeg' },
+        // Visa Infinite - 10 cards (5 with each image)
         { id: 'card-21', title: 'Visa Infinite', number: '**** **** **** ****', price: 25.00, image: 'Visa Infinite1.jpeg' },
         { id: 'card-22', title: 'Visa Infinite', number: '**** **** **** ****', price: 25.00, image: 'Visa Infinite1.jpeg' },
         { id: 'card-23', title: 'Visa Infinite', number: '**** **** **** ****', price: 35.00, image: 'Visa Infinite1.jpeg' },
         { id: 'card-24', title: 'Visa Infinite', number: '**** **** **** ****', price: 35.00, image: 'Visa Infinite1.jpeg' },
         { id: 'card-25', title: 'Visa Infinite', number: '**** **** **** ****', price: 50.00, image: 'Visa Infinite1.jpeg' },
-        { id: 'card-26', title: 'Visa Infinite', number: '**** **** **** ****', price: 50.00, image: 'Visa Infinite1.jpeg' },
-        { id: 'card-27', title: 'Visa Infinite', number: '**** **** **** ****', price: 100.00, image: 'Visa Infinite1.jpeg' },
-        { id: 'card-28', title: 'Visa Infinite', number: '**** **** **** ****', price: 100.00, image: 'Visa Infinite1.jpeg' },
-        { id: 'card-29', title: 'Visa Infinite', number: '**** **** **** ****', price: 25.00, image: 'Visa Infinite1.jpeg' },
-        { id: 'card-30', title: 'Visa Infinite', number: '**** **** **** ****', price: 25.00, image: 'Visa Infinite1.jpeg' },
+        { id: 'card-26', title: 'Visa Infinite', number: '**** **** **** ****', price: 50.00, image: 'Visa Infinite 2.jpeg' },
+        { id: 'card-27', title: 'Visa Infinite', number: '**** **** **** ****', price: 100.00, image: 'Visa Infinite 2.jpeg' },
+        { id: 'card-28', title: 'Visa Infinite', number: '**** **** **** ****', price: 100.00, image: 'Visa Infinite 2.jpeg' },
+        { id: 'card-29', title: 'Visa Infinite', number: '**** **** **** ****', price: 25.00, image: 'Visa Infinite 2.jpeg' },
+        { id: 'card-30', title: 'Visa Infinite', number: '**** **** **** ****', price: 25.00, image: 'Visa Infinite 2.jpeg' },
         // Visa Gold - 10 cards
         { id: 'card-31', title: 'Visa Gold', number: '**** **** **** ****', price: 25.00, image: 'Visa Gold1.jpeg' },
         { id: 'card-32', title: 'Visa Gold', number: '**** **** **** ****', price: 25.00, image: 'Visa Gold1.jpeg' },
@@ -81,17 +81,17 @@ window.db = {
         { id: 'card-38', title: 'Visa Gold', number: '**** **** **** ****', price: 100.00, image: 'Visa Gold1.jpeg' },
         { id: 'card-39', title: 'Visa Gold', number: '**** **** **** ****', price: 25.00, image: 'Visa Gold1.jpeg' },
         { id: 'card-40', title: 'Visa Gold', number: '**** **** **** ****', price: 25.00, image: 'Visa Gold1.jpeg' },
-        // Discover - 10 cards
-        { id: 'card-41', title: 'Discover', number: '**** **** **** ****', price: 25.00, image: 'Titanium Discover1.jpeg' },
-        { id: 'card-42', title: 'Discover', number: '**** **** **** ****', price: 25.00, image: 'Titanium Discover1.jpeg' },
-        { id: 'card-43', title: 'Discover', number: '**** **** **** ****', price: 35.00, image: 'Titanium Discover1.jpeg' },
-        { id: 'card-44', title: 'Discover', number: '**** **** **** ****', price: 35.00, image: 'Titanium Discover1.jpeg' },
-        { id: 'card-45', title: 'Discover', number: '**** **** **** ****', price: 50.00, image: 'Titanium Discover1.jpeg' },
-        { id: 'card-46', title: 'Discover', number: '**** **** **** ****', price: 50.00, image: 'WhatsApp Image 2025-09-16 at 3.16.36 PM.jpeg' },
-        { id: 'card-47', title: 'Discover', number: '**** **** **** ****', price: 100.00, image: 'WhatsApp Image 2025-09-16 at 3.16.36 PM.jpeg' },
-        { id: 'card-48', title: 'Discover', number: '**** **** **** ****', price: 100.00, image: 'WhatsApp Image 2025-09-16 at 3.16.36 PM.jpeg' },
-        { id: 'card-49', title: 'Discover', number: '**** **** **** ****', price: 25.00, image: 'WhatsApp Image 2025-09-16 at 3.16.36 PM.jpeg' },
-        { id: 'card-50', title: 'Discover', number: '**** **** **** ****', price: 25.00, image: 'WhatsApp Image 2025-09-16 at 3.16.36 PM.jpeg' }
+        // Discover - 10 cards (5 with each image)
+        { id: 'card-41', title: 'Discover', number: '**** **** **** ****', price: 25.00, image: 'Discover1.jpeg' },
+        { id: 'card-42', title: 'Discover', number: '**** **** **** ****', price: 25.00, image: 'Discover1.jpeg' },
+        { id: 'card-43', title: 'Discover', number: '**** **** **** ****', price: 35.00, image: 'Discover1.jpeg' },
+        { id: 'card-44', title: 'Discover', number: '**** **** **** ****', price: 35.00, image: 'Discover1.jpeg' },
+        { id: 'card-45', title: 'Discover', number: '**** **** **** ****', price: 50.00, image: 'Discover1.jpeg' },
+        { id: 'card-46', title: 'Discover', number: '**** **** **** ****', price: 50.00, image: 'Discover2.jpeg' },
+        { id: 'card-47', title: 'Discover', number: '**** **** **** ****', price: 100.00, image: 'Discover2.jpeg' },
+        { id: 'card-48', title: 'Discover', number: '**** **** **** ****', price: 100.00, image: 'Discover2.jpeg' },
+        { id: 'card-49', title: 'Discover', number: '**** **** **** ****', price: 25.00, image: 'Discover2.jpeg' },
+        { id: 'card-50', title: 'Discover', number: '**** **** **** ****', price: 25.00, image: 'Discover2.jpeg' }
     ],
 
     // Get products function

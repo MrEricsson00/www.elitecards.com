@@ -779,7 +779,7 @@ header {
     box-shadow: 0 6px 15px rgba(255, 96, 0, 0.5);
 }
 
-/* Visa Gold Card Styles - Using generic gold colors */
+/* Visa Gold Card Styles - Using generic gold colors with dark background */
 .visa-gold-card {
     border: 1px solid #d4af37;
     background: linear-gradient(145deg, var(--card-bg), #252520);
@@ -809,7 +809,7 @@ header {
 }
 
 .visa-gold-card .product-title {
-    color: #f9d423;
+    color: #d4af37;
 }
 
 .visa-gold-card .product-price {
@@ -819,6 +819,7 @@ header {
 .visa-gold-card .add-to-cart {
     background: linear-gradient(45deg, #d4af37, #f9d423);
     box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+    color: white;
 }
 
 .visa-gold-card .add-to-cart:hover {
@@ -1261,7 +1262,7 @@ header {
     color: #ff6000;
 }
 
-/* Visa Gold Cart Item Styles - Using generic gold colors */
+/* Visa Gold Cart Item Styles - Using generic gold colors with dark background */
 .visa-gold-cart-item .cart-item-details h3 {
     color: #f9d423;
 }
