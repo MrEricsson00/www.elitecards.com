@@ -30,6 +30,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize the app
     init();
 
+    // Helper function to get card limit based on price
+    function getCardLimit(price) {
+        if (price === 25) return 1000;
+        if (price === 35) return 2000;
+        if (price === 50) return 3500;
+        if (price === 100) return 4500;
+        return 1000; // default
+    }
+
     // Render products to the grid
     async function renderProducts() {
         const productsGrid = document.getElementById('products-grid');
@@ -62,22 +71,22 @@ document.addEventListener('DOMContentLoaded', function() {
                     cardType = 'infinite-card';
                 } else if (product.title.toLowerCase().includes('world')) {
                     cardType = 'world-card';
+                } else if (product.title.toLowerCase().includes('american express')) {
+                    cardType = 'american-express-card';
+                } else if (product.title.toLowerCase().includes('discover')) {
+                    cardType = 'discover-card';
                 }
                 
                 productCard.className = `product-card ${cardType}`;
                 
-                // Use the image from product data or fallback to default
-                let imageSrc = product.image || 'American Express.png';
-                
+                const cardLimit = getCardLimit(product.price);
+
                 productCard.innerHTML = `
-                    <div class="product-image">
-                        <img src="${imageSrc}" alt="${product.title}" loading="lazy">
-                    </div>
                     <div class="product-info">
                         <h3 class="product-title">${product.title}</h3>
-                        <p class="product-number">****************</p>
-                        <p class="product-limit">${product.limit}</p>
+                        <p class="product-number">**** **** **** ****</p>
                         <p class="product-price">$${product.price.toFixed(2)}</p>
+                        <p class="product-limit">Limit: $${cardLimit.toLocaleString()}</p>
                         <button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
                     </div>
                 `;
@@ -144,21 +153,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 cardType = 'infinite-card';
             } else if (product.title.toLowerCase().includes('world')) {
                 cardType = 'world-card';
+            } else if (product.title.toLowerCase().includes('american express')) {
+                cardType = 'american-express-card';
+            } else if (product.title.toLowerCase().includes('discover')) {
+                cardType = 'discover-card';
             }
             
             const cartItem = document.createElement('div');
             cartItem.className = `cart-item ${cardType}-cart-item`;
-            
-            // Use the image from product data or fallback to default
-            let imageSrc = product.image || 'American Express.png';
-            
+
+            const cardLimit = getCardLimit(product.price);
+
             cartItem.innerHTML = `
-                <div class="cart-item-image">
-                    <img src="${imageSrc}" alt="${product.title}" loading="lazy">
-                </div>
                 <div class="cart-item-details">
                     <h3>${product.title}</h3>
-                    <p class="cart-item-number">****************</p>
+                    <p class="cart-item-number">**** **** **** ****</p>
+                    <p class="cart-item-limit">Limit: $${cardLimit.toLocaleString()}</p>
                     <p class="cart-item-quantity">Quantity: ${item.quantity}</p>
                 </div>
                 <div class="cart-item-price">$${(product.price * item.quantity).toFixed(2)}</div>
