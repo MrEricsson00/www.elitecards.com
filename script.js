@@ -59,7 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 // Determine card type based on title
                 let cardType = '';
-                if (product.title.toLowerCase().includes('gold')) {
+                if (product.title.toLowerCase().includes('visa gold')) {
+                    cardType = 'visa-gold-card';
+                } else if (product.title.toLowerCase().includes('gold')) {
                     cardType = 'gold-card';
                 } else if (product.title.toLowerCase().includes('black')) {
                     cardType = 'black-card';
@@ -144,7 +146,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Determine card type based on title
             let cardType = '';
-            if (product.title.toLowerCase().includes('gold')) {
+            if (product.title.toLowerCase().includes('visa gold')) {
+                cardType = 'visa-gold-card';
+            } else if (product.title.toLowerCase().includes('gold')) {
                 cardType = 'gold-card';
             } else if (product.title.toLowerCase().includes('black')) {
                 cardType = 'black-card';

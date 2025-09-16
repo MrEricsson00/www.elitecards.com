@@ -87,11 +87,11 @@ window.db = {
         { id: 'card-43', title: 'Discover', number: '**** **** **** ****', price: 35.00, image: 'Titanium Discover1.jpeg' },
         { id: 'card-44', title: 'Discover', number: '**** **** **** ****', price: 35.00, image: 'Titanium Discover1.jpeg' },
         { id: 'card-45', title: 'Discover', number: '**** **** **** ****', price: 50.00, image: 'Titanium Discover1.jpeg' },
-        { id: 'card-46', title: 'Discover', number: '**** **** **** ****', price: 50.00, image: 'Titanium Discover1.jpeg' },
-        { id: 'card-47', title: 'Discover', number: '**** **** **** ****', price: 100.00, image: 'Titanium Discover1.jpeg' },
-        { id: 'card-48', title: 'Discover', number: '**** **** **** ****', price: 100.00, image: 'Titanium Discover1.jpeg' },
-        { id: 'card-49', title: 'Discover', number: '**** **** **** ****', price: 25.00, image: 'Titanium Discover1.jpeg' },
-        { id: 'card-50', title: 'Discover', number: '**** **** **** ****', price: 25.00, image: 'Titanium Discover1.jpeg' }
+        { id: 'card-46', title: 'Discover', number: '**** **** **** ****', price: 50.00, image: 'WhatsApp Image 2025-09-16 at 3.16.36 PM.jpeg' },
+        { id: 'card-47', title: 'Discover', number: '**** **** **** ****', price: 100.00, image: 'WhatsApp Image 2025-09-16 at 3.16.36 PM.jpeg' },
+        { id: 'card-48', title: 'Discover', number: '**** **** **** ****', price: 100.00, image: 'WhatsApp Image 2025-09-16 at 3.16.36 PM.jpeg' },
+        { id: 'card-49', title: 'Discover', number: '**** **** **** ****', price: 25.00, image: 'WhatsApp Image 2025-09-16 at 3.16.36 PM.jpeg' },
+        { id: 'card-50', title: 'Discover', number: '**** **** **** ****', price: 25.00, image: 'WhatsApp Image 2025-09-16 at 3.16.36 PM.jpeg' }
     ],
 
     // Get products function
