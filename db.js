@@ -38,11 +38,11 @@ window.db = {
     // Sample products data - 50 cards across 5 categories
     sampleProducts: [
         // American Express - 10 cards (5 with each image)
-        { id: 'card-1', title: 'American Express', number: '**** **** **** ****', price: 25.00, image: 'American Express1.png' },
-        { id: 'card-2', title: 'American Express', number: '**** **** **** ****', price: 25.00, image: 'American Express1.png' },
-        { id: 'card-3', title: 'American Express', number: '**** **** **** ****', price: 35.00, image: 'American Express1.png' },
-        { id: 'card-4', title: 'American Express', number: '**** **** **** ****', price: 35.00, image: 'American Express1.png' },
-        { id: 'card-5', title: 'American Express', number: '**** **** **** ****', price: 50.00, image: 'American Express1.png' },
+        { id: 'card-1', title: 'American Express', number: '**** **** **** ****', price: 25.00, image: 'American Express 1.jpeg' },
+        { id: 'card-2', title: 'American Express', number: '**** **** **** ****', price: 25.00, image: 'American Express 1.jpeg' },
+        { id: 'card-3', title: 'American Express', number: '**** **** **** ****', price: 35.00, image: 'American Express 1.jpeg' },
+        { id: 'card-4', title: 'American Express', number: '**** **** **** ****', price: 35.00, image: 'American Express 1.jpeg' },
+        { id: 'card-5', title: 'American Express', number: '**** **** **** ****', price: 50.00, image: 'American Express 1.jpeg' },
         { id: 'card-6', title: 'American Express', number: '**** **** **** ****', price: 50.00, image: 'American Express 2.jpeg' },
         { id: 'card-7', title: 'American Express', number: '**** **** **** ****', price: 100.00, image: 'American Express 2.jpeg' },
         { id: 'card-8', title: 'American Express', number: '**** **** **** ****', price: 100.00, image: 'American Express 2.jpeg' },
@@ -70,17 +70,17 @@ window.db = {
         { id: 'card-28', title: 'Visa Infinite', number: '**** **** **** ****', price: 100.00, image: 'Visa Infinite 2.jpeg' },
         { id: 'card-29', title: 'Visa Infinite', number: '**** **** **** ****', price: 25.00, image: 'Visa Infinite 2.jpeg' },
         { id: 'card-30', title: 'Visa Infinite', number: '**** **** **** ****', price: 25.00, image: 'Visa Infinite 2.jpeg' },
-        // Visa Gold - 10 cards
-        { id: 'card-31', title: 'Visa Gold', number: '**** **** **** ****', price: 25.00, image: 'Visa Gold1.jpeg' },
-        { id: 'card-32', title: 'Visa Gold', number: '**** **** **** ****', price: 25.00, image: 'Visa Gold1.jpeg' },
-        { id: 'card-33', title: 'Visa Gold', number: '**** **** **** ****', price: 35.00, image: 'Visa Gold1.jpeg' },
-        { id: 'card-34', title: 'Visa Gold', number: '**** **** **** ****', price: 35.00, image: 'Visa Gold1.jpeg' },
-        { id: 'card-35', title: 'Visa Gold', number: '**** **** **** ****', price: 50.00, image: 'Visa Gold1.jpeg' },
-        { id: 'card-36', title: 'Visa Gold', number: '**** **** **** ****', price: 50.00, image: 'Visa Gold1.jpeg' },
-        { id: 'card-37', title: 'Visa Gold', number: '**** **** **** ****', price: 100.00, image: 'Visa Gold1.jpeg' },
-        { id: 'card-38', title: 'Visa Gold', number: '**** **** **** ****', price: 100.00, image: 'Visa Gold1.jpeg' },
-        { id: 'card-39', title: 'Visa Gold', number: '**** **** **** ****', price: 25.00, image: 'Visa Gold1.jpeg' },
-        { id: 'card-40', title: 'Visa Gold', number: '**** **** **** ****', price: 25.00, image: 'Visa Gold1.jpeg' },
+        // Visa Gold - 10 cards (5 with each image)
+        { id: 'card-31', title: 'Visa Gold', number: '**** **** **** ****', price: 25.00, image: 'Visa Gold 1.jpeg' },
+        { id: 'card-32', title: 'Visa Gold', number: '**** **** **** ****', price: 25.00, image: 'Visa Gold 1.jpeg' },
+        { id: 'card-33', title: 'Visa Gold', number: '**** **** **** ****', price: 35.00, image: 'Visa Gold 1.jpeg' },
+        { id: 'card-34', title: 'Visa Gold', number: '**** **** **** ****', price: 35.00, image: 'Visa Gold 1.jpeg' },
+        { id: 'card-35', title: 'Visa Gold', number: '**** **** **** ****', price: 50.00, image: 'Visa Gold 1.jpeg' },
+        { id: 'card-36', title: 'Visa Gold', number: '**** **** **** ****', price: 50.00, image: 'Visa Infinite 2.jpeg' },
+        { id: 'card-37', title: 'Visa Gold', number: '**** **** **** ****', price: 100.00, image: 'Visa Infinite 2.jpeg' },
+        { id: 'card-38', title: 'Visa Gold', number: '**** **** **** ****', price: 100.00, image: 'Visa Infinite 2.jpeg' },
+        { id: 'card-39', title: 'Visa Gold', number: '**** **** **** ****', price: 25.00, image: 'Visa Infinite 2.jpeg' },
+        { id: 'card-40', title: 'Visa Gold', number: '**** **** **** ****', price: 25.00, image: 'Visa Infinite 2.jpeg' },
         // Discover - 10 cards (5 with each image)
         { id: 'card-41', title: 'Discover', number: '**** **** **** ****', price: 25.00, image: 'Discover1.jpeg' },
         { id: 'card-42', title: 'Discover', number: '**** **** **** ****', price: 25.00, image: 'Discover1.jpeg' },
@@ -96,11 +96,9 @@ window.db = {
 
     // Get products function
     getProducts: function() {
-        // Shuffle the products array to randomize order
-        const shuffledProducts = [...this.sampleProducts].sort(() => Math.random() - 0.5);
-        // Return shuffled products for now
+        // Return products in order by type for neat grid arrangement
         // In production, this would fetch from PocketBase
-        return Promise.resolve(shuffledProducts);
+        return Promise.resolve([...this.sampleProducts]);
     },
 
     getCart: function() {
