@@ -1147,8 +1147,8 @@ header {
 
 .cart-item {
     display: grid;
-    grid-template-columns: 100px 1fr auto auto;
-    gap: 2rem;
+    grid-template-columns: 120px 1fr auto auto;
+    gap: 1.5rem;
     align-items: center;
     padding: 1.5rem 0;
     border-bottom: 1px solid var(--border-color);
@@ -1156,6 +1156,26 @@ header {
 
 .cart-item:last-child {
     border-bottom: none;
+}
+
+.cart-item-image {
+    width: 100px;
+    height: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+}
+
+.cart-item-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.cart-item-image img:hover {
+    transform: scale(1.05);
 }
 
 .empty-cart-message {
@@ -3024,7 +3044,7 @@ header {
     }
 
     .cart-item {
-        grid-template-columns: 80px 1fr auto;
+        grid-template-columns: 100px 1fr auto;
         gap: 1rem;
     }
 
@@ -3119,8 +3139,9 @@ header {
     }
 
     .cart-item {
-        grid-template-columns: 1fr;
-        text-align: center;
+        grid-template-columns: 80px 1fr auto;
+        text-align: left;
+        gap: 1rem;
     }
 
 
