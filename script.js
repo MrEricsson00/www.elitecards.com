@@ -82,6 +82,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 const cardLimit = getCardLimit(product.price);
 
                 productCard.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.title}" />
+                    </div>
                     <div class="product-info">
                         <h3 class="product-title">${product.title}</h3>
                         <p class="product-number">**** **** **** ****</p>
