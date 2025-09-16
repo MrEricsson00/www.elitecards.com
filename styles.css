@@ -1149,7 +1149,7 @@ header {
 .cart-item {
     display: grid;
     grid-template-columns: 120px 1fr auto auto;
-    gap: 1.5rem;
+    gap: 2.5rem;
     align-items: center;
     padding: 1.5rem 0;
     border-bottom: 1px solid var(--border-color);
@@ -3046,7 +3046,7 @@ header {
 
     .cart-item {
         grid-template-columns: 100px 1fr auto;
-        gap: 1rem;
+        gap: 2rem;
     }
 
     .cart-item-price {
@@ -3142,7 +3142,7 @@ header {
     .cart-item {
         grid-template-columns: 80px 1fr auto;
         text-align: left;
-        gap: 1rem;
+        gap: 1.5rem;
     }
 
 
